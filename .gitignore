@@ -1,0 +1,6 @@
+.venv/
+.vscode/
+airflow.*
+logs/
+src/dags/__pycache__/
+unittests.cfg
