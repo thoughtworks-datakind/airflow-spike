@@ -71,7 +71,7 @@ def validate_numeric(input):
     return False
 
 def validate_using_goodtables(input_path, schema_path):
-  inspector = Inspector()
+  inspector = Inspector(row_limit=2000)
   wpdx_report = inspector.inspect(schema_path, preset='datapackage')
   pprint(wpdx_report)
 
@@ -92,13 +92,3 @@ t2 = PythonOperator(
 
 t1
 t2
-# t1 = BashOperator(
-#     task_id='print_date',
-#     bash_command='date',
-#     dag=test_dag)
-
-# t2 = PythonOperator(
-#     task_id="validate",
-#     python_callable=validate,
-#     provide_context=True,
-#     dag=test_dag)
