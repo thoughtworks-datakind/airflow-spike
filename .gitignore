@@ -4,3 +4,7 @@ airflow.*
 logs/
 src/dags/__pycache__/
 unittests.cfg
+*.pid
+*.pyc
+.DS_Store
+*.csv

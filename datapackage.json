@@ -1,0 +1,175 @@
+{
+  "name": "wpdx",
+  "schema": "tabular-data-package",
+  "profile": "tabular-data-package",
+  "resources": [
+    {
+      "path": "Water_Point_Data_Exchange_Complete_Dataset.csv",
+      "profile": "tabular-data-resource",
+      "name": "wpdx",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8-sig",
+      "schema": {
+        "fields": [
+          {
+            "name": "Row ID",
+            "type": "number",
+            "format": "default",
+            "groupChar": ","
+          },
+          {
+            "name": "#country_name",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "#water_source",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "#water_tech",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "#status_id",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "#management",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "#pay",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "#installer",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "#install_year",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "#status",
+            "type": "string",
+            "format": "default",
+            "title": "status title"
+          },
+          {
+            "name": "#source",
+            "type": "string",
+            "format": "default",
+            "constraints": {
+              "required": true
+            }
+          },
+          {
+            "name": "#adm1",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "#adm2",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "#wpdx_id",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "#report_date",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "#country_id",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "#activity_id",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "#data_lnk",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "#orig_lnk",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "photo_lnk",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "#converted",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "#created",
+            "type": "date",
+            "format": "%m/%d/%Y %H:%M:%S %p %z"
+          },
+          {
+            "name": "#updated",
+            "type": "date",
+            "format": "%m/%d/%Y %H:%M:%S %p %z"
+          },
+          {
+            "name": "#lat_deg",
+            "type": "number",
+            "format": "default"
+          },
+          {
+            "name": "#lon_deg",
+            "type": "number",
+            "format": "default"
+          },
+          {
+            "name": "Location",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "Count",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "#fecal_coliform_presence",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "#fecal_coliform_value",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "#subjective_quality",
+            "type": "string",
+            "format": "default"
+          }
+        ],
+        "missingValues": [""]
+      }
+    }
+  ]
+}
