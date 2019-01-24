@@ -36,7 +36,10 @@
           {
             "name": "#status_id",
             "type": "string",
-            "format": "default"
+            "format": "default",
+            "constraints": {
+              "required":true
+            }
           },
           {
             "name": "#management",
@@ -89,8 +92,11 @@
           },
           {
             "name": "#report_date",
-            "type": "string",
-            "format": "default"
+            "type": "date",
+            "format": "%m/%d/%Y %H:%M:%S %p %z",
+            "constraints": {
+              "required":true
+            }
           },
           {
             "name": "#country_id",
@@ -135,12 +141,18 @@
           {
             "name": "#lat_deg",
             "type": "number",
-            "format": "default"
+            "format": "default",
+            "constraints": {
+              "required":true
+            }
           },
           {
             "name": "#lon_deg",
             "type": "number",
-            "format": "default"
+            "format": "default",
+            "constraints": {
+              "required":true
+            }
           },
           {
             "name": "Location",
