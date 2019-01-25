@@ -1,11 +1,11 @@
 from airflow import DAG
-from goodtables import Inspector
+from goodtables import validate
 from airflow.operators.bash_operator import BashOperator
 from airflow.operators.python_operator import PythonOperator
 from airflow.utils import dates
-import os
 from pprint import pprint
-from commons.common_functions import validate_config, validate_mandatory, validate_numeric
+import os
+import json
 
 default_args = {
     'owner': 'dk_tw',
@@ -14,19 +14,21 @@ default_args = {
 }
 
 goodtables_dag =  DAG("goodtables", default_args=default_args, max_active_runs=1, catchup=False, schedule_interval=None)
-schema_path = os.getcwd() + '/datapackage.json'
+schema_path = os.getcwd() + '/schema.json'
+file_source_path = os.getcwd() + '/Water_Point_Data_Exchange_Complete_Dataset.csv'
 
-def validate_using_goodtables(schema_path):
-  inspector = Inspector(row_limit=2000)
-  wpdx_report = inspector.inspect(schema_path, preset='datapackage')
-  pprint(wpdx_report)
+def validate_data(file_source_path, schema_path):
+  json_file = open(schema_path)
+  schema = json.load(json_file)
+  json_file.close()
+  report = validate(file_source_path, schema=schema, row_limit=2000)
+  return report
 
-
-t1 = PythonOperator(
-    task_id="validate_using_goodtables",
-    python_callable=validate_using_goodtables,
-    op_kwargs={"schema_path": schema_path},
+validation_stage = PythonOperator(
+    task_id="validate_data",
+    python_callable=validate_data,
+    op_kwargs={"file_source_path":file_source_path, "schema_path": schema_path},
     dag=goodtables_dag
 )
 
-t1
+validation_stage
