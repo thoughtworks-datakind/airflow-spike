@@ -1,9 +1,0 @@
-{
-  "columns": [
-    { "name": "lat_deg", "rules": ["validate_mandatory", "validate_numeric"] },
-    { "name": "lon_deg", "rules": ["validate_mandatory" , "validate_numeric"] },
-    { "name": "status_id", "rules": ["validate_mandatory"] },
-    { "name": "report_date", "rules": ["validate_mandatory"] },
-    { "name": "source", "rules": ["validate_mandatory"] }
-  ]
-}
