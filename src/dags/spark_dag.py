@@ -23,7 +23,7 @@
 #         # 'conf': {
 #         #     'parquet.compression': 'SNAPPY'
 #         # },
-    
+
 #         # 'py_files': 'sample_library.py',
 #         'py_files': 'spark_code.py',
 #         # 'driver_classpath': 'parquet.jar',
@@ -54,12 +54,12 @@
 #   # Given
 
 
-       
+
 
 # test_dag = DAG(DAG_ID, default_args=default_args, schedule_interval=None, start_date=(datetime.now() - timedelta(minutes=1)))
 
 
-    
+
 # dummy = SparkSubmitOperator(
 #     task_id='spark-submit-python',
 #     application_file=APPLICATION_FILE_PATH,
@@ -86,7 +86,7 @@
 # t1 >> operator >> t2
 
 from airflow import DAG
-
+import os
 from airflow.contrib.operators.spark_submit_operator import SparkSubmitOperator
 from datetime import datetime, timedelta
 
@@ -99,7 +99,7 @@ dag = DAG('spark_dag', default_args=args, schedule_interval="*/10 * * * *")
 
 operator = SparkSubmitOperator(
     task_id='spark_submit_job',
-    application='/Users/SGm.reddy/DataKind/airflow-spike/src/spark_code.py',
+    application=os.getcwd()+"/src/spark_code.py",
     total_executor_cores='1',
     executor_cores='1',
     executor_memory='2g',
